@@ -1,5 +1,5 @@
 import React from "react";
-import
+
 const Signup = () => {
   return (
     <div>
@@ -23,11 +23,9 @@ const Signup = () => {
               </div>
               <div className="login-btn text-center">
                 <input
-                  id="login"
-                  type="button"
-                  value="Login"
-                  class="btn btn-primary"
-                  data-dismiss="modal"
+                  type="submit"
+                  value="Upload"
+                  className="btn btn-primary btn-block mt-4"
                 />
               </div>
             </form>

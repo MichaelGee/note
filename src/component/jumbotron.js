@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+
 const Jumbotron = () => {
   return (
     <div>
@@ -11,8 +11,9 @@ const Jumbotron = () => {
             </div>
             <div className="col-6">
               <p className="signup text-right" data-target="modal1">
-                <Link><a data-toggle="modal" data-target="#exampleModal">Sign up</a></Link>
-                  
+                <a data-toggle="modal" data-target="#exampleModal">
+                  Sign up
+                </a>
               </p>
             </div>
           </div>
