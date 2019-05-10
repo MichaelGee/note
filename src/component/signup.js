@@ -24,7 +24,7 @@ const Signup = () => {
               <div className="login-btn text-center">
                 <input
                   type="submit"
-                  value="Upload"
+                  value="Login"
                   className="btn btn-primary btn-block mt-4"
                 />
               </div>
