@@ -26,3 +26,10 @@ body{
     margin-top: 8%;
     margin-bottom: 8%;
 }
+
+
+.signup{
+    width: 60% !important;
+    margin-left: 20% !important;
+    margin-top: 12% !important;
+}
