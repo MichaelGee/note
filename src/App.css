@@ -2,16 +2,27 @@
 
 body{
     font-family: 'Roboto', sans-serif !important;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
-.jumbotron{
-    background-color: #e61c5d !important;
+.nav-wrapper{
+    background-color: #5D1049 !important;
     color: white !important;
 }
 
-.introtext{
-    margin-top: 70px;
+ .login{
+    width: 40% !important;
+    margin-left: 30% !important;
 }
-login-btn{
-  width: 12rem;
+
+
+.btn{
+  width: 100%!important;
+}
+
+.introtext{
+    margin-top: 8%;
+    margin-bottom: 8%;
 }

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
-import Jumbotron from "./component/jumbotron";
-import Signup from "./component/signup";
+import Navbar from "./component/navbar";
+import Login from "./component/login";
+import Introtext from "./component/introtext";
 class App extends Component {
   render() {
     return (
       <div>
-        <Jumbotron />
-        <Signup />
+        <Navbar />
+        <Introtext />
+        <Login />
       </div>
     );
   }
