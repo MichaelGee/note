@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="container log_card">
@@ -21,7 +21,9 @@ const Login = () => {
                     <label for="password">Password</label>
                   </div>
                 </div>
-                <a class="waves-effect waves-light btn">Login</a>
+                <Link to="/note">
+                  <a class="waves-effect waves-light btn lgn-btn">Login</a>
+                </Link>
               </form>
             </div>
           </div>

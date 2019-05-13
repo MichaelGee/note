@@ -14,12 +14,13 @@ body{
 
  .login{
     width: 50% !important;
-    margin-left: 30% !important;
+    margin-left: 25% !important;
 }
 
 
-.btn{
+.sgnup-btn, .lgn-btn{
   width: 100%!important;
+  background-color: #5D1049 !important;
 }
 
 .introtext{
@@ -32,4 +33,18 @@ body{
     width: 60% !important;
     margin-left: 20% !important;
     margin-top: 12% !important;
+}
+
+.text-card{
+    width: 70% !important;
+    margin-left: 15% !important;
+}
+
+.save-btn{
+    background-color: #5D1049 !important;
+}
+
+
+.input-field{
+    margin-top: 20px;
 }

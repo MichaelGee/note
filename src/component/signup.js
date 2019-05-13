@@ -37,7 +37,7 @@ const Signup = () => {
                     <label for="password">Confirm Password</label>
                   </div>
                 </div>
-                <a class="waves-effect waves-light btn">Login</a>
+                <a class="waves-effect waves-light btn sgnup-btn">Login</a>
               </form>
             </div>
           </div>
@@ -48,3 +48,4 @@ const Signup = () => {
 };
 
 export default Signup;
+  

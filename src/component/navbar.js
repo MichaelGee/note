@@ -6,7 +6,7 @@ const Navbar = () => {
     <div>
       <nav>
         <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">
+          <a href="#!" class="brand-logo" style={{ marginLeft: "6%" }}>
             Note
           </a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger">
