@@ -58,6 +58,11 @@ body{
     margin-top: 20px;
 }
 
+.signup_link{
+    margin-right: 12px !important;
+    font-size: 5rem !important;
+}
+
 
  /* label color */
  .input-field label {

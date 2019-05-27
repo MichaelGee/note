@@ -12,10 +12,10 @@ const Navbar = () => {
           <a href="#" data-target="mobile-demo" class="sidenav-trigger">
             <i class="material-icons">menu</i>
           </a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="right hide-on-med-and-down" style={{ marginRight: "4%" }}>
             <li>
-              <Link to="/signup">
-                <a href="">Sign up</a>
+              <Link to="/signup" style={{ fontSize: "1.2rem" }}>
+                Sign up
               </Link>
             </li>
           </ul>
@@ -24,9 +24,7 @@ const Navbar = () => {
 
       <ul class="sidenav" id="mobile-demo">
         <li>
-          <Link to="/signup">
-            <a href="">Sign up</a>
-          </Link>
+          <Link to="/signup">Sign up</Link>
         </li>
       </ul>
     </div>
