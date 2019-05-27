@@ -40,6 +40,15 @@ body{
     margin-left: 15% !important;
 }
 
+.note-card{
+    width: 90% !important;
+    margin-left: 5% !important;
+}
+
+.card-action, .edits{
+    color: black !important;
+}
+
 .save-btn{
     background-color: #5D1049 !important;
 }
@@ -48,3 +57,23 @@ body{
 .input-field{
     margin-top: 20px;
 }
+
+
+ /* label color */
+ .input-field label {
+    color: #5D1049 !important;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #5D1049 !important;
+  }
+
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #5D1049 !important;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #5D1049 !important;
+    box-shadow: 0 1px 0 0 #5D1049 !important;
+  }

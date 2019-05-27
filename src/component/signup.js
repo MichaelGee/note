@@ -7,34 +7,54 @@ const Signup = () => {
         <div className="col s12 m6 signup center">
           <div className="card white darken-1">
             <div className="card-content black-text">
-              <span className="card-title">Login</span>
+              <span className="card-title">Signup</span>
               <form>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input id="username" type="text" className="validate" />
-                    <label for="email">Username</label>
+                    <i className="material-icons prefix">account_circle</i>
+                    <input
+                      id="username"
+                      type="text"
+                      className="validate"
+                      required
+                    />
+                    <label for="username">Username</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input id="email" type="email" className="validate" />
+                    <i className="material-icons prefix">mail_outline</i>
+                    <input
+                      id="email"
+                      type="email"
+                      className="validate"
+                      required
+                    />
                     <label for="email">Email</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
-                    <input id="password" type="password" className="validate" />
+                    <i className="material-icons prefix">lock</i>
+                    <input
+                      id="password"
+                      type="password"
+                      className="validate"
+                      required
+                    />
                     <label for="password">Password</label>
                   </div>
                 </div>
                 <div className="row">
                   <div className="input-field col s12">
+                    <i className="material-icons prefix">lock_outline</i>
                     <input
                       id="conf_password"
                       type="password"
                       className="validate"
+                      required
                     />
-                    <label for="password">Confirm Password</label>
+                    <label for="conf_password">Confirm Password</label>
                   </div>
                 </div>
                 <a class="waves-effect waves-light btn sgnup-btn">Login</a>
@@ -48,4 +68,3 @@ const Signup = () => {
 };
 
 export default Signup;
-  
