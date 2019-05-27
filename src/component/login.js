@@ -1,6 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import fireAuth from "./auth";
+
 const Login = () => {
+  const login = e => {
+    e.preventDefault();
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+
+    fireAuth
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("Login sucessful");
+      })
+      .catch(error => {
+        console.log(error);
+        alert("User not registerd");
+      });
+  };
   return (
     <div className="container log_card">
       <div className="row login-card">
@@ -34,7 +52,9 @@ const Login = () => {
                   </div>
                 </div>
                 <Link to="/note">
-                  <a class="waves-effect waves-light btn lgn-btn">Login</a>
+                  <a class="waves-effect  btn lgn-btn" onClick={login}>
+                    Login
+                  </a>
                 </Link>
               </form>
             </div>

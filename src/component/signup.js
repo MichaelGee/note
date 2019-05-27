@@ -1,6 +1,23 @@
 import React from "react";
+import fireAuth from "./auth";
 
 const Signup = () => {
+  const reg = e => {
+    e.preventDefault();
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+
+    fireAuth
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("Sucessfully signed up user");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="container">
       <div className="row signup-card">
@@ -9,18 +26,6 @@ const Signup = () => {
             <div className="card-content black-text">
               <span className="card-title">Signup</span>
               <form>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <i className="material-icons prefix">account_circle</i>
-                    <input
-                      id="username"
-                      type="text"
-                      className="validate"
-                      required
-                    />
-                    <label for="username">Username</label>
-                  </div>
-                </div>
                 <div className="row">
                   <div className="input-field col s12">
                     <i className="material-icons prefix">mail_outline</i>
@@ -45,19 +50,9 @@ const Signup = () => {
                     <label for="password">Password</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <i className="material-icons prefix">lock_outline</i>
-                    <input
-                      id="conf_password"
-                      type="password"
-                      className="validate"
-                      required
-                    />
-                    <label for="conf_password">Confirm Password</label>
-                  </div>
-                </div>
-                <a class="waves-effect waves-light btn sgnup-btn">Login</a>
+                <a class="waves-effect  btn sgnup-btn" onClick={reg}>
+                  Login
+                </a>
               </form>
             </div>
           </div>
