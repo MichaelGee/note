@@ -35,7 +35,7 @@ const Signup = () => {
                       className="validate"
                       required
                     />
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                   </div>
                 </div>
                 <div className="row">
@@ -47,10 +47,10 @@ const Signup = () => {
                       className="validate"
                       required
                     />
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                   </div>
                 </div>
-                <a class="waves-effect  btn sgnup-btn" onClick={reg}>
+                <a className="waves-effect  btn sgnup-btn" onClick={reg}>
                   Login
                 </a>
               </form>

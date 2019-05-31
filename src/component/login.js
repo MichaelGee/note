@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import fireAuth from "./auth";
 
 const Login = () => {
-  const login = e => {
+  /*const login = e => {
     e.preventDefault();
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
@@ -18,44 +18,40 @@ const Login = () => {
         console.log(error);
         alert("User not registerd");
       });
-  };
+  };*/
   return (
-    <div className="container log_card">
-      <div className="row login-card">
-        <div className="col s12 m6 login center">
-          <div className="card white darken-1">
-            <div className="card-content black-text">
-              <span className="card-title">Login</span>
+    <div className='container log_card'>
+      <div className='row login-card'>
+        <div className='col s12 m6 login center'>
+          <div className='card white darken-1'>
+            <div className='card-content black-text'>
+              <span className='card-title'>Login</span>
               <form>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <i className="material-icons prefix">account_circle</i>
+                <div className='row'>
+                  <div className='input-field col s12'>
+                    <i className='material-icons prefix'>account_circle</i>
                     <input
-                      id="email"
-                      type="email"
-                      className="validate"
+                      id='email'
+                      type='email'
+                      className='validate'
                       required
                     />
-                    <label for="email">Email</label>
+                    <label htmlFor='email'>Email</label>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="input-field col s12">
-                    <i class="material-icons prefix">lock</i>
+                <div className='row'>
+                  <div className='input-field col s12'>
+                    <i className='material-icons prefix'>lock</i>
                     <input
-                      id="password"
-                      type="password"
-                      className="validate"
+                      id='password'
+                      type='password'
+                      className='validate'
                       required
                     />
-                    <label for="password">Password</label>
+                    <label htmlFor='password'>Password</label>
                   </div>
                 </div>
-                <Link to="/note">
-                  <a class="waves-effect  btn lgn-btn" onClick={login}>
-                    Login
-                  </a>
-                </Link>
+                <Link to='/note'>Login</Link>
               </form>
             </div>
           </div>

@@ -17,31 +17,37 @@ const Navbar = () => {
   return (
     <div>
       <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo" style={{ marginLeft: "6%" }}>
+        <div className="nav-wrapper">
+          <a href="#!" className="brand-logo" style={{ marginLeft: "6%" }}>
             Note
           </a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
+          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+            <i className="material-icons">menu</i>
           </a>
-          <ul class="right hide-on-med-and-down" style={{ marginRight: "4%" }}>
+          <ul
+            className="right hide-on-med-and-down"
+            style={{ marginRight: "4%" }}
+          >
             <li>
               <Link to="/signup" style={{ fontSize: "1.2rem" }}>
                 Sign up
               </Link>
             </li>
           </ul>
-          <ul class="right hide-on-med-and-down" style={{ marginRight: "4%" }}>
+          <ul
+            className="right hide-on-med-and-down"
+            style={{ marginRight: "4%" }}
+          >
             <li>
-              <a class="waves-effect  btn lgn-btn" onClick={logout}>
+              <Link to="/" style={{ fontSize: "1.2rem" }} onClick={logout}>
                 Logout
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
       </nav>
 
-      <ul class="sidenav" id="mobile-demo">
+      <ul className="sidenav" id="mobile-demo">
         <li>
           <Link to="/signup">Sign up</Link>
         </li>

@@ -10,12 +10,12 @@ import FireAuth from "./component/auth";
 
 let crntUser = firebase.auth().currentUser;
 class App extends Component {
-  state = {
+  /* state = {
     user: null
   };
 
   authListener() {
-    firebase.auth().onAuthStateChanged(user => {
+    FireAuth.auth().onAuthStateChanged(user => {
       if (user) {
         this.setState({ user });
         console.log(`${crntUser} is logged in.`);
@@ -28,19 +28,22 @@ class App extends Component {
   componentDidMount() {
     this.authListener();
   }
-
+*/
   render() {
     return (
       <Router>
         <div>
           <Navbar />
-          <div className="container">
-            {this.state.user ? (
+          <div className='container'>
+            <Route path='/' exact={true} component={Home} />
+            <Route path='/note' exact={true} component={Note} />
+            <Route path='/signup' exact={true} component={Signup} />
+            {/* {this.state.user ? ( 
               <Route path="/note" exact={true} component={Note} />
             ) : (
               <Route path="/" exact={true} component={Home} />
             )}
-            <Route path="/signup" exact={true} component={Signup} />
+            <Route path="/signup" exact={true} component={Signup} />*/}
           </div>
         </div>
       </Router>
