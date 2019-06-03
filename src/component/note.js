@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Textarea from "./textarea";
+import TextArea from "./textarea";
 
 const Note = () => {
   const [text, setText] = useState([
@@ -15,13 +15,12 @@ const Note = () => {
     }
   ]);
 
-  const TextContent = ({ cont, index }) => {
+  const TextContent = ({ cont, index, deleteNote }) => {
     return (
       <div className='row '>
         <div className='col s12 m6 note-card'>
           <div className='card  darken-1'>
             <div className='card-content black-text'>
-              <span className='card-title'>Card Title</span>
               <p>{cont.content}</p>
             </div>
             <div className='card-action'>
@@ -30,7 +29,7 @@ const Note = () => {
                 Edit
               </a>
 
-              <a href='#' className='edits'>
+              <a href='#' className='edits' onClick={() => deleteNote(index)}>
                 Delete
               </a>
             </div>
@@ -40,11 +39,30 @@ const Note = () => {
     );
   };
 
+  /* Textarea */
+
+  const addNote = content => {
+    const newNote = [...text];
+    newNote.unshift({ content });
+    setText(newNote);
+  };
+
+  const deleteNote = index => {
+    const newNote = [...text];
+    newNote.splice(index, 1);
+    setText(newNote);
+  };
+
   return (
     <div>
-      <Textarea />
+      <TextArea addNote={addNote} />
       {text.map((cont, index) => (
-        <TextContent key={index} index={index} cont={cont} />
+        <TextContent
+          key={index}
+          index={index}
+          cont={cont}
+          deleteNote={deleteNote}
+        />
       ))}
 
       {/* Modal Structure */}

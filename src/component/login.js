@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import fireAuth from "./auth";
+import TextArea from "./textarea";
 
 const Login = () => {
   /*const login = e => {
