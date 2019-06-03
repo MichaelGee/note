@@ -4,39 +4,36 @@ import TextArea from "./textarea";
 const Note = () => {
   const [text, setText] = useState([
     {
-      id: 1,
-      content:
-        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness"
-    },
-    {
-      id: 2,
-      content:
-        "It was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way—in short, the period was so far like the present period"
+      content: " "
     }
   ]);
 
   const TextContent = ({ cont, index, deleteNote }) => {
-    return (
-      <div className='row '>
-        <div className='col s12 m6 note-card'>
-          <div className='card  darken-1'>
-            <div className='card-content black-text'>
-              <p>{cont.content}</p>
-            </div>
-            <div className='card-action'>
-              {/* Modal Trigger */}
-              <a className='modal-trigger edits' href='#modal1'>
-                Edit
-              </a>
+    if (cont.content === " ") {
+      return null;
+    } else {
+      return (
+        <div className='row '>
+          <div className='col s12 m6 note-card'>
+            <div className='card  darken-1'>
+              <div className='card-content black-text'>
+                <p>{cont.content}</p>
+              </div>
+              <div className='card-action'>
+                {/* Modal Trigger */}
+                <a className='modal-trigger edits' href='#modal1'>
+                  Edit
+                </a>
 
-              <a href='#' className='edits' onClick={() => deleteNote(index)}>
-                Delete
-              </a>
+                <a href='#' className='edits' onClick={() => deleteNote(index)}>
+                  Delete
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   };
 
   /* Textarea */
