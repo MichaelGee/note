@@ -1,17 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import fireAuth from "./fireConfig";
-const Navbar = () => {
-  const logout = () => {
-    fireAuth
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log("Signed out successfully");
-      })
-      .catch(error => {
-        console.log("A problem occured while trying to log out");
-      });
+import { Link, withRouter } from "react-router-dom";
+import firebase from "./fireConfig";
+const Navbar = props => {
+  const logout = async () => {
+    await firebase.logout();
+    props.history.push("/");
+    console.log("Successfully logged out");
   };
 
   return (
@@ -39,12 +33,7 @@ const Navbar = () => {
             style={{ marginRight: "4%" }}
           >
             <li>
-              <a
-                style={{ fontSize: "1.2rem" }}
-                onClick={() => {
-                  logout(() => window.history.push("/"));
-                }}
-              >
+              <a style={{ fontSize: "1.2rem" }} onClick={logout}>
                 Logout
               </a>
             </li>
@@ -63,4 +52,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

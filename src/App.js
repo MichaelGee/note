@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import firebase from "./component/fireConfig";
 import "./App.css";
 import Home from "./component/home";
 import Navbar from "./component/navbar";
@@ -8,30 +9,37 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import ProtectedRoute from "./component/protectedRoute";
 import fourZeroFour from "./component/404";
 
-class App extends Component {
+const App = () => {
   //console.log(FireAuth.auth().currentUser);
+  const [initializeFirebase, setInitializeFirebase] = useState(false);
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Navbar />
-          <div className="container">
-            <Switch>
-              
-                <ProtectedRoute path="/note" component={Note} />
-              
-                <Route path="/" exact={true} component={Home} />
-              
+  useEffect(() => {
+    firebase.isInitialized().then(val => {
+      setInitializeFirebase(val);
+    });
+  });
 
-              <Route path="/signup" exact={true} component={Signup} />
-              <Route component={fourZeroFour} />
-            </Switch>
-          </div>
+  return initializeFirebase !== false ? (
+    <Router>
+      <div>
+        <Navbar />
+        <div className="container">
+          <Switch>
+            <ProtectedRoute path="/note" component={Note} />
+
+            <Route path="/" exact={true} component={Home} />
+
+            <Route path="/signup" exact={true} component={Signup} />
+            <Route component={fourZeroFour} />
+          </Switch>
         </div>
-      </Router>
-    );
-  }
-}
+      </div>
+    </Router>
+  ) : (
+    <div class="progress center">
+      <div class="indeterminate" />
+    </div>
+  );
+};
 
 export default App;

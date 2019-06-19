@@ -1,24 +1,22 @@
-import React from "react";
-import fireAuth from "./fireConfig";
+import React, { useState } from "react";
+import firebase from "./fireConfig";
 import { withRouter } from "react-router-dom";
 
 const Login = props => {
-  const login = callback => {
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    fireAuth
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log("Login successful");
-        callback();
-      })
-      .catch(error => {
-        console.log(error);
-        alert("Your password is wrong or user not registerd");
-      });
+  const login = async () => {
+    try {
+      await firebase.login(email, password);
+      props.history.replace("/note");
+      console.log("Logged in successfully");
+      console.log(firebase.getCurrentUser());
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+
   return (
     <div className="container log_card">
       <div className="row login-card">
@@ -35,6 +33,8 @@ const Login = props => {
                       type="email"
                       className="validate"
                       required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                     />
                     <label htmlFor="email">Email</label>
                   </div>
@@ -47,18 +47,13 @@ const Login = props => {
                       type="password"
                       className="validate"
                       required
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
                     />
                     <label htmlFor="password">Password</label>
                   </div>
                 </div>
-                <a
-                  className="waves-effect  btn sgnup-btn"
-                  onClick={() => {
-                    login(() => {
-                      props.history.push("/note");
-                    });
-                  }}
-                >
+                <a className="waves-effect  btn sgnup-btn" onClick={login}>
                   Login
                 </a>
               </form>

@@ -1,21 +1,19 @@
-import React from "react";
-import fireAuth from "./fireConfig";
+import React, { useState } from "react";
+import firebase from "./fireConfig";
+import { withRouter } from "react-router-dom";
 
-const Signup = () => {
-  const reg = e => {
-    e.preventDefault();
-    const email = document.querySelector("#email").value;
-    const password = document.querySelector("#password").value;
+const Signup = props => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    fireAuth
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log("Sucessfully signed up user");
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  const signup = async () => {
+    try {
+      await firebase.signup(username, email, password);
+      props.history.replace("/note");
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -28,12 +26,26 @@ const Signup = () => {
               <form>
                 <div className="row">
                   <div className="input-field col s12">
+                    <i className="material-icons prefix">account_circle</i>
+                    <input
+                      id="username"
+                      type="text"
+                      className="validate"
+                      required
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                    />
+                    <label htmlFor="username">Username</label>
+                  </div>
+                  <div className="input-field col s12">
                     <i className="material-icons prefix">mail_outline</i>
                     <input
                       id="email"
                       type="email"
                       className="validate"
                       required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                     />
                     <label htmlFor="email">Email</label>
                   </div>
@@ -46,11 +58,13 @@ const Signup = () => {
                       type="password"
                       className="validate"
                       required
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
                     />
                     <label htmlFor="password">Password</label>
                   </div>
                 </div>
-                <a className="waves-effect  btn sgnup-btn" onClick={reg}>
+                <a className="waves-effect  btn sgnup-btn" onClick={signup}>
                   Signup
                 </a>
               </form>
@@ -62,4 +76,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default withRouter(Signup);

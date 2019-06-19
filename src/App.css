@@ -63,6 +63,12 @@ body{
     font-size: 5rem !important;
 }
 
+.progress{
+    width: 30% !important;
+}
+
+
+
 
  /* label color */
  .input-field label {
