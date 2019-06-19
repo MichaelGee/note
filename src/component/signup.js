@@ -1,5 +1,5 @@
 import React from "react";
-import fireAuth from "./auth";
+import fireAuth from "./fireConfig";
 
 const Signup = () => {
   const reg = e => {
@@ -51,7 +51,7 @@ const Signup = () => {
                   </div>
                 </div>
                 <a className="waves-effect  btn sgnup-btn" onClick={reg}>
-                  Login
+                  Signup
                 </a>
               </form>
             </div>

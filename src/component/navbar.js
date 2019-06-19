@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fireAuth from "./auth";
+import fireAuth from "./fireConfig";
 const Navbar = () => {
   const logout = () => {
     fireAuth
@@ -39,9 +39,14 @@ const Navbar = () => {
             style={{ marginRight: "4%" }}
           >
             <li>
-              <Link to="/" style={{ fontSize: "1.2rem" }} onClick={logout}>
+              <a
+                style={{ fontSize: "1.2rem" }}
+                onClick={() => {
+                  logout(() => window.history.push("/"));
+                }}
+              >
                 Logout
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -49,7 +54,9 @@ const Navbar = () => {
 
       <ul className="sidenav" id="mobile-demo">
         <li>
-          <Link to="/signup">Sign up</Link>
+          <Link to="/signup" onClick={logout}>
+            Sign up
+          </Link>
         </li>
       </ul>
     </div>

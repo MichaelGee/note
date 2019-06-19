@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TextArea from "./textarea";
+import Modal from "./modal";
 
 const Note = () => {
   const [text, setText] = useState([
@@ -49,7 +50,6 @@ const Note = () => {
     newNote.splice(index, 1);
     setText(newNote);
   };
-
   return (
     <div>
       <TextArea addNote={addNote} />
@@ -62,40 +62,7 @@ const Note = () => {
         />
       ))}
 
-      {/* Modal Structure */}
-      <div id='modal1' className='modal'>
-        <div className='modal-content'>
-          <span className='card-title'>Make an Edit</span>
-          <form class='col s12 center'>
-            <div class='row'>
-              <div className='input-field col s12'>
-                <textarea
-                  id='textarea2'
-                  className='materialize-textarea'
-                  data-length='120'
-                />
-                <label for='textarea2'>Textarea</label>
-              </div>
-            </div>
-
-            <button
-              className='btn waves-effect waves-light save-btn'
-              type='submit'
-              name='action'
-            >
-              Save
-            </button>
-          </form>
-        </div>
-        <div className='modal-footer'>
-          <a
-            href='#!'
-            className='modal-close waves-effect waves-green btn-flat'
-          >
-            Agree
-          </a>
-        </div>
-      </div>
+      <Modal />
     </div>
   );
 };

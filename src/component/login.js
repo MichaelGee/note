@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import fireAuth from "./auth";
-import TextArea from "./textarea";
+import fireAuth from "./fireConfig";
+import { withRouter } from "react-router-dom";
 
-const Login = () => {
-  /*const login = e => {
-    e.preventDefault();
+const Login = props => {
+  const login = callback => {
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
 
@@ -13,46 +11,56 @@ const Login = () => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log("Login sucessful");
+        console.log("Login successful");
+        callback();
       })
       .catch(error => {
         console.log(error);
-        alert("User not registerd");
+        alert("Your password is wrong or user not registerd");
       });
-  };*/
+  };
   return (
-    <div className='container log_card'>
-      <div className='row login-card'>
-        <div className='col s12 m6 login center'>
-          <div className='card white darken-1'>
-            <div className='card-content black-text'>
-              <span className='card-title'>Login</span>
+    <div className="container log_card">
+      <div className="row login-card">
+        <div className="col s12 m6 login center">
+          <div className="card white darken-1">
+            <div className="card-content black-text">
+              <span className="card-title">Login</span>
               <form>
-                <div className='row'>
-                  <div className='input-field col s12'>
-                    <i className='material-icons prefix'>account_circle</i>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <i className="material-icons prefix">account_circle</i>
                     <input
-                      id='email'
-                      type='email'
-                      className='validate'
+                      id="email"
+                      type="email"
+                      className="validate"
                       required
                     />
-                    <label htmlFor='email'>Email</label>
+                    <label htmlFor="email">Email</label>
                   </div>
                 </div>
-                <div className='row'>
-                  <div className='input-field col s12'>
-                    <i className='material-icons prefix'>lock</i>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <i className="material-icons prefix">lock</i>
                     <input
-                      id='password'
-                      type='password'
-                      className='validate'
+                      id="password"
+                      type="password"
+                      className="validate"
                       required
                     />
-                    <label htmlFor='password'>Password</label>
+                    <label htmlFor="password">Password</label>
                   </div>
                 </div>
-                <Link to='/note'>Login</Link>
+                <a
+                  className="waves-effect  btn sgnup-btn"
+                  onClick={() => {
+                    login(() => {
+                      props.history.push("/note");
+                    });
+                  }}
+                >
+                  Login
+                </a>
               </form>
             </div>
           </div>
@@ -62,4 +70,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

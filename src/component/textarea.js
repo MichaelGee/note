@@ -12,25 +12,25 @@ const TextArea = ({ addNote }) => {
 
   return (
     <div>
-      <div class='row'>
-        <form class='col s12 center' onSubmit={handleClick}>
-          <div class='row'>
-            <div class='input-field col s12'>
+      <div className="row">
+        <form className="col s12 center" onSubmit={handleClick}>
+          <div className="row">
+            <div className="input-field col s12">
               <textarea
-                id='textarea2'
-                class='materialize-textarea'
-                data-length='120'
+                id="textarea2"
+                className="materialize-textarea"
+                data-length="120"
                 value={value}
                 onChange={e => setValue(e.target.value)}
               />
-              <label for='textarea2'>Type your note..</label>
+              <label for="textarea2">Type your note..</label>
             </div>
           </div>
 
           <button
-            class='btn waves-effect waves-light save-btn'
-            type='submit'
-            name='action'
+            className="btn waves-effect waves-light save-btn"
+            type="submit"
+            name="action"
           >
             Save
           </button>
