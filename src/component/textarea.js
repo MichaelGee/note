@@ -23,7 +23,7 @@ const TextArea = ({ addNote }) => {
                 value={value}
                 onChange={e => setValue(e.target.value)}
               />
-              <label for="textarea2">Type your note..</label>
+              <label htmlFor="textarea2">Type your note..</label>
             </div>
           </div>
 

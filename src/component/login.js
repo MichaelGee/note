@@ -1,22 +1,45 @@
-import React, { useState } from "react";
-import firebase from "./fireConfig";
+import React, { useState, useEffect } from "react";
+import firebasee from "./fireConfig";
+import firebase from "firebase";
 import { withRouter } from "react-router-dom";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
 const Login = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [signedIn, setSignedIn] = useState(false);
+
+  useEffect(() => {
+    firebasee.isInitialized(user => {
+      setSignedIn(!!user);
+    });
+  });
+
+  const firebaseUiConfig = {
+    signInFlow: "popup",
+    signinSuccessUrl: "/note",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signedInSuccessful: () => false
+    }
+  };
 
   const login = async () => {
     try {
-      await firebase.login(email, password);
+      await firebasee.login(email, password);
       props.history.replace("/note");
       console.log("Logged in successfully");
-      console.log(firebase.getCurrentUser());
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  if (firebasee.getCurrentUser()) {
+    props.history.push("/note");
+  }
   return (
     <div className="container log_card">
       <div className="row login-card">
@@ -56,6 +79,14 @@ const Login = props => {
                 <a className="waves-effect  btn sgnup-btn" onClick={login}>
                   Login
                 </a>
+                {signedIn ? (
+                  props.history.replace("/note")
+                ) : (
+                  <StyledFirebaseAuth
+                    uiConfig={firebaseUiConfig}
+                    firebaseAuth={firebase.auth()}
+                  />
+                )}
               </form>
             </div>
           </div>

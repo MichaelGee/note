@@ -14,7 +14,7 @@ const Modal = () => {
                   className='materialize-textarea'
                   data-length='120'
                 />
-                <label for='textarea2'>Make an Edit..</label>
+                <label htmlFor='textarea2'>Make an Edit..</label>
               </div>
             </div>
 

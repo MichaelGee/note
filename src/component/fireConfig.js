@@ -1,6 +1,6 @@
 import app from "firebase/app";
 import "firebase/auth";
-import "firebase/firebase-firestore";
+//import "firebase/firebase-firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBARD7Gi1hdK_dL-BGbXP660WJQUS-p8l8",
@@ -12,13 +12,13 @@ const firebaseConfig = {
   appId: "1:866934518085:web:821eaa2645f9f1d2"
 };
 
-class Firebase {
+class Firebasee {
   constructor() {
     // Initialize firebase
     app.initializeApp(firebaseConfig);
 
     this.auth = app.auth();
-    this.db = app.firestore();
+    //this.db = app.firestore();
   }
 
   login(email, password) {
@@ -47,4 +47,4 @@ class Firebase {
   }
 }
 
-export default new Firebase();
+export default new Firebasee();

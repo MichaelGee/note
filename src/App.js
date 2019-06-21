@@ -36,8 +36,8 @@ const App = () => {
       </div>
     </Router>
   ) : (
-    <div class="progress center">
-      <div class="indeterminate" />
+    <div className="progress center ">
+      <div className="indeterminate" />
     </div>
   );
 };
