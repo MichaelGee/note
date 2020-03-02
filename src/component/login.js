@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import firebasee from "./fireConfig";
+import fire from "./fireConfig";
 import firebase from "firebase";
 import { withRouter } from "react-router-dom";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
@@ -10,7 +10,7 @@ const Login = props => {
   const [signedIn, setSignedIn] = useState(false);
 
   useEffect(() => {
-    firebasee.isInitialized(user => {
+    fire.isInitialized(user => {
       setSignedIn(!!user);
     });
   });
@@ -29,7 +29,7 @@ const Login = props => {
 
   const login = async () => {
     try {
-      await firebasee.login(email, password);
+      await fire.login(email, password);
       props.history.replace("/note");
       console.log("Logged in successfully");
     } catch (error) {
@@ -37,7 +37,7 @@ const Login = props => {
     }
   };
 
-  if (firebasee.getCurrentUser()) {
+  if (fire.getCurrentUser()) {
     props.history.push("/note");
   }
   return (

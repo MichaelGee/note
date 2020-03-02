@@ -10,7 +10,6 @@ import ProtectedRoute from "./component/protectedRoute";
 import fourZeroFour from "./component/404";
 
 const App = () => {
-  //console.log(FireAuth.auth().currentUser);
   const [initializeFirebase, setInitializeFirebase] = useState(false);
 
   useEffect(() => {
@@ -19,10 +18,11 @@ const App = () => {
     });
   });
 
-  return initializeFirebase !== false ? (
+  return (
     <Router>
       <div>
         <Navbar />
+
         <div className="container">
           <Switch>
             <ProtectedRoute path="/note" component={Note} />
@@ -35,10 +35,6 @@ const App = () => {
         </div>
       </div>
     </Router>
-  ) : (
-    <div className="progress center ">
-      <div className="indeterminate" />
-    </div>
   );
 };
 
